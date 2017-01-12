@@ -1,0 +1,31 @@
+- var root = siteRoot || "/"
+
+doctype html
+html(manifest="appcache.manifest")
+	head
+		block head
+			meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+			meta(name="apple-mobile-web-app-capable" content="yes")
+			meta(name="apple-mobile-web-app-status-bar-style" content="black")
+			meta(charset="UTF-8")
+			base(href=siteRoot)
+			link(rel="apple-touch-icon" href="/logo-icon.png")
+			//link(rel="icon" href="favicon.ico" type="image/x-icon")
+			link(rel="stylesheet" type="text/css" href="shell/common.css")
+			link(rel="stylesheet" type="text/css" href="resources/cola-ui/semantic.css")
+			link(rel="stylesheet" type="text/css" href="resources/cola-ui/cola.css")
+			link(rel="stylesheet" type="text/css" href="common.css")
+			link(href="http://vjs.zencdn.net/5.0.2/video-js.css" rel="stylesheet")
+
+	block body
+
+	block scripts
+		script(src="resources/jquery-2.1.3.js")
+		script(src="resources/jquery.cookie.js")
+		script(src="resources/cola-ui/3rd.js")
+		script(src="resources/cola-ui/semantic.js")
+		script(src="resources/cola-ui/cola.js")
+		script(src="resources/inobounce.js")
+		script(src="shell/app.js")
+		script(src="common.js")
+		script(src="http://vjs.zencdn.net/5.0.2/video.js")

@@ -1,0 +1,19 @@
+extends .cola
+
+append head
+	link(rel="stylesheet", type="text/css", href="shell/index.css")
+	script window._isColaShell = true
+
+block body
+	body
+		#viewMain(c-widget="subView" style="overflow:hidden; height:100%")
+			.content.v-box
+
+		#cacheDimmer.ui.inverted.dimmer
+			#cacheLoader.ui.text.loader(c-bind="loaderText")
+
+append scripts
+	script(src="app-config.js")
+	script(src="shell/index.js")
+	script(src="resources/jquery.parsequery.js")
+	script(src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js")

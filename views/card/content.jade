@@ -1,0 +1,65 @@
+#contentBody.v-box
+	.box
+		.header-bar
+			.item.icon.back-button(c-onclick="historyBack()")
+				i.icon.chevron.left
+			.item(c-onclick="historyBack()")
+				span 内容详情
+			.item
+			.item.icon
+				i.icon.share.alternate
+
+	.flex-box(style="overflow:auto")
+		div
+			#video
+			.content
+				.meta.create
+					.item.user-avatar
+						img(c-src="getAppImageUrl(advertisementVo.user.avatar)")
+					.item.user-name
+						span(c-bind="getUserName(advertisementVo.user)")
+					.item.date
+						span(c-bind="formatDate(advertisementVo.advertisement.updateDate,'MM-dd')")
+				.meta.title
+					.item
+						div(c-bind="advertisementVo.advertisement.title")
+				.meta.options
+					.item
+						div
+							span(c-bind="translate('perception',advertisementVo.advertisement.perceptionCode)")
+							span(c-bind="translate('commodity_class',advertisementVo.advertisement.commodityClassCode)")
+				div.content(c-bind="advertisementVo.advertisement.content")
+				div.ui.segment.basic(c-display="advertisementVo.advertisement.buyUrl")
+
+	.box
+		.bottom-bar
+			.item.icon(c-class="highlight:advertisementVo.collect" c-onclick="toggleCollect()")
+				i.icon.heart(c-class="empty:!advertisementVo.collect")
+				div(c-bind="advertisementVo.collectCount" )
+			.item.icon(c-class="highlight:advertisementVo.thumbsUp" c-onclick="toggleThumbsUp()")
+				i.icon.thumbs.outline.up
+				div(c-bind="advertisementVo.thumbsUpCount" )
+			.item.icon(c-class="highlight:advertisementVo.thumbsDown" c-onclick="toggleThumbsDown()")
+				i.icon.thumbs.outline.down
+				div(c-bind="advertisementVo.thumbsDownCount" )
+			.item.right
+				.ui.basic.button.blue(c-onclick="showBuy()" c-class="disabled:!advertisementVo.advertisement.buyUrl") 购买引导
+c-layer#buyLayer
+	.v-box
+		.box
+			.header-bar
+				.item.icon.back-button(c-onclick="hideBuy()")
+					i.icon.chevron.left
+				.item
+					span 品趣-购买引导
+		.flex-box
+			div
+				.ui.segment.basic
+					img.ui.bordered.image(c-src="getAppImageUrl(advertisementVo.advertisement.buyPictureId)" c-onclick="showAdvertise(question.advertiseUrl)")
+				.ui.segment.basic.description(c-onclick="showAdvertise(advertisementVo.advertisement.buyUrl)")
+					p(c-bind="advertisementVo.advertisement.buyDescription" )
+
+				.ui.segment.basic.link
+					c-button.blue.basic.fluid(caption="直达链接" c-onclick="goBuy(advertisementVo.advertisement.buyUrl)")
+					c-button.blue.fluid(caption="返回主页" click="historyBack")
+

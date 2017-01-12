@@ -1,0 +1,104 @@
+@import "../shell/.global.less";
+
+#homeBody {
+	position: relative;
+	height: 100%;
+	background: #ececec;
+	overflow: auto;
+
+	#titlebar {
+		padding-right: 0.5em;
+		margin-bottom: 0.25em;
+		-webkit-appearance: none;
+		.box-shadow(0px 2px 1px 0 rgba(34, 36, 38, 0.1));
+
+		> .title {
+			background: @primaryColor;
+			color: #fff;
+			font-size: 140%;
+			font-weight: normal;
+			-webkit-text-shadow: 0 0 5px rgba(255, 255, 255, 0.75);
+			text-shadow: 0 0 5px rgba(255, 255, 255, 0.75);
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	#advertisement-list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		> li {
+			overflow: hidden;
+			//max-height: 160px;
+			background: #fff;
+			> .image {
+				width: 100%;
+				display:block ;
+				max-height: 160px;
+				img {
+					width: 100%;
+				}
+				overflow: hidden;
+				margin-bottom: 8px;
+			}
+			margin-bottom: 8px;
+			> .meta {
+				padding: 0 8px;
+				display: table;
+				height: 48px;
+				width: 100%;
+				> .item {
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 10px;
+					> * {
+						display: block;
+						//line-height: 32px;
+					}
+					&.user-avatar {
+						width: 40px;
+						img {
+							width: 32px;
+							height: 32px;
+							border-radius: 50%;
+						}
+					}
+					&.user-name {
+						width: 80px;
+						> span {
+							font-size: 14px;
+						}
+						color: #4c4c4c;
+					}
+					&.date {
+						text-align: right;
+						padding-right: 10px;
+						color: #2f2f2f;
+						font-size: 14px;
+					}
+				}
+				&.title {
+					height: 26px;
+					font-size: 14px;
+					color: #424242;
+				}
+				&.bottom {
+					height: 26px;
+					span {
+						&:before{
+							content: "#";
+						}
+						font-size: 12px;
+						margin-right: 8px;
+					}
+					>.item{
+						vertical-align: top;
+					}
+					color: #000055;
+				}
+			}
+		}
+	}
+
+}

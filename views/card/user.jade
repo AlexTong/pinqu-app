@@ -1,0 +1,53 @@
+.card-body.user
+	.header
+		.user-avatar
+			img(c-src="getAppImageUrl(user.avatar)")
+		.user-name
+			span(c-bind="getUserName(user)")
+	.content
+		#myTab.ui.pointing.secondary.blue.menu.three.item
+			.item.active(data-tab="my-items") 我的投稿
+			.item(data-tab="collects") 我的收藏
+			.item(data-tab="comments") 我的评论
+		.ui.basic.tab.segment.active(data-tab="my-items")
+			ul.advertisement-list
+				li(c-repeat="item in myItems")
+					div.meta
+						.item.user-avatar
+							img(c-src="getAppImageUrl(user.avatar)")
+						.item.user-name
+							span(c-bind="getUserName(user)")
+						.item.date
+							span(c-bind="formatDate(item.updateDate,'MM-dd')")
+					a.image.state(c-href="'/content/'+item.id")
+						img(c-src="getAppImageUrl(item.pictureId)")
+					div.meta.title
+						.item
+							div(c-bind="item.title")
+					div.meta.bottom
+						.item
+							div
+								span(c-bind="translate('perception',item.perceptionCode)")
+								span(c-bind="translate('commodity_class',item.commodityClassCode)")
+		.ui.basic.tab.segment(data-tab="collects")
+			ul.advertisement-list
+				li(c-repeat="item in collectList")
+					
+					div.meta
+						.item.user-avatar
+							img(c-src="getAppImageUrl(item.user.avatar)")
+						.item.user-name
+							span(c-bind="getUserName(item.user)")
+						.item.date
+							span(c-bind="formatDate(item.advertisement.updateDate,'MM-dd')")
+					a.image.state(c-href="'/content/'+item.advertisement.id")
+						img(c-src="getAppImageUrl(item.advertisement.pictureId)")
+					div.meta.title
+						.item
+							div(c-bind="item.advertisement.title")
+					div.meta.bottom
+						.item
+							div
+								span(c-bind="translate('perception',item.advertisement.perceptionCode)")
+								span(c-bind="translate('commodity_class',item.advertisement.commodityClassCode)")
+		.ui.basic.tab.segment(data-tab="comments")

@@ -1,0 +1,27 @@
+@import "./shell/.global.less";
+
+.card-header-bar {
+	background: @primaryColor !important;
+	color: #fff !important;
+	height: @header-bar-height;
+	vertical-align: top;
+	display: table;
+	width: 100%;
+	> .item {
+		display: table-cell;
+		vertical-align: middle;
+		&.icon {
+			width: 40px;
+			text-align: center;
+		}
+		&.title {
+			padding: 0 20px;
+		}
+	}
+}
+
+.card-body.empty:before {
+	content: "";
+	position: absolute;
+	top:140px;
+}

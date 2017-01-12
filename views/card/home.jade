@@ -1,0 +1,24 @@
+#homeBody.v-box
+	.box
+		#titlebar(c-widget="titleBar; class:borderless; title:品趣")
+	.flex-box(style="overflow:auto")
+		div
+			ul#advertisement-list
+				li(c-repeat="item in advertisementList")
+					div.meta
+						.item.user-avatar
+							img(c-src="getAppImageUrl(item.user.avatar)")
+						.item.user-name
+							span(c-bind="getUserName(item.user)")
+						.item.date
+							span(c-bind="formatDate(item.advertisement.updateDate,'MM-dd')")
+					a.image.state(c-href="'/content/'+item.advertisement.id")
+						img(c-src="getAppImageUrl(item.advertisement.pictureId)")
+					div.meta.title
+						.item
+							div(c-bind="item.advertisement.title")
+					div.meta.bottom
+						.item
+							div
+								span(c-bind="translate('perception',item.advertisement.perceptionCode)")
+								span(c-bind="translate('commodity_class',item.advertisement.commodityClassCode)")
