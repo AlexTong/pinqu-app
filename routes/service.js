@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 
 var $ = require("node-httpclient");
-var target = "http://localhost:8080/service";
+var targetDomain = "http://localhost:6089";
+//var targetDomain = "http://localhost:8080";
+var target = targetDomain+"/service";
 
 if (target) {
 	router.all("*", function (req, res, next) {
@@ -21,7 +23,7 @@ if (target) {
 			$.ajax({
 				async: false,
 				type: req.method,
-				url: "http://localhost:8080/login",
+				url: targetDomain+"/login",
 				data: req.body,
 				headers: req.headers,
 				complete: function (data, status, headers) {
