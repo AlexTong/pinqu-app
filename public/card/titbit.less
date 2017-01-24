@@ -1,0 +1,165 @@
+@import "../shell/.global.less";
+
+#titbitBody, #titbitBuyLayer {
+	.header-bar {
+		background: @primaryColor !important;
+		color: #fff !important;
+		height: @header-bar-height;
+		vertical-align: top;
+		display: table;
+		width: 100%;
+		> .item {
+			display: table-cell;
+			vertical-align: middle;
+			&.icon {
+				width: 40px;
+				text-align: center;
+			}
+
+		}
+	}
+}
+
+#titbitBody {
+	//background: #ececec;
+	> .box > .bottom-bar {
+		height: @header-bar-height + 16px;
+		//border-top: 1px solid @borderColor;
+		display: table;
+		width: 100%;
+		.box-shadow(0 -0.125em 0.25em rgba(34, 36, 38, 0.2));
+		padding-left: 8px;
+		> .item {
+			display: table-cell;
+			vertical-align: middle;
+
+			&.icon {
+				width: 62px;
+				text-align: center;
+				font-size: 18px;
+				vertical-align: bottom;
+				color: #686868;
+
+				&.highlight {
+					color: @primaryColor;
+				}
+				> i.icon {
+					margin: 0px;
+				}
+				> div {
+					line-height: 1em;
+					margin-top: 4px;
+					width: 100%;
+					font-size: 0.75rem;
+				}
+				padding-bottom: 8px;
+				//border-right: 1px solid rgba(99, 106, 111, 0.15);
+			}
+
+			&.right {
+				text-align: right;
+				padding-right: 8px;
+			}
+		}
+	}
+
+	> .flex-box > div > .content {
+		padding: 10px 0px;
+		> .content {
+			color: #4f4f4f;
+			padding: 0 16px;
+		}
+		> .meta {
+
+			//padding: 0 8px;
+			display: table;
+			height: 48px;
+			width: 100%;
+			background: #fff;
+			padding: 0 16px;
+			&.create {
+				.box-shadow(0 1px 1px 0 rgba(34, 36, 38, 0.1));
+				margin: 4px 0 14px 0;
+
+			}
+			> .item {
+				display: table-cell;
+				vertical-align: middle;
+				&:not(:first-of-type) {
+
+					padding-left: 10px;
+				}
+				> * {
+					display: block;
+					//line-height: 32px;
+				}
+				&.user-avatar {
+					width: 40px;
+					padding-left: 1px;
+					img {
+						width: 32px;
+						height: 32px;
+						border-radius: 50%;
+					}
+				}
+				&.user-name {
+					width: 80px;
+					> span {
+						font-size: 14px;
+					}
+					color: #4c4c4c;
+				}
+				&.date {
+					text-align: right;
+					padding-right: 10px;
+					color: #2f2f2f;
+					font-size: 14px;
+				}
+			}
+			&.title {
+				height: 26px;
+				font-size: 16px;
+				color: #555555;
+				font-weight: bold;
+			}
+			&.options {
+				height: 26px;
+				margin-top: 0px;
+				span {
+					&:before {
+						content: "#";
+					}
+					font-size: 12px;
+					margin-right: 8px;
+				}
+				> .item {
+					vertical-align: top;
+				}
+				color: #000055;
+			}
+		}
+	}
+}
+
+.video-js.vjs-default-skin {
+	width: 100%;
+}
+
+#titbitBuyLayer {
+	background: #fff;
+	.description {
+		padding-top: 0px;
+	}
+	.ui.segment.basic.link {
+		padding: 0 2em 4em 2em;
+		> .ui.button {
+			margin-top: 16px;
+		}
+	}
+}
+
+#media {
+	> img {
+		width: 100%;
+	}
+}

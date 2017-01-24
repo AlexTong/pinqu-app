@@ -11,7 +11,7 @@ cola(function (model) {
 		}
 	});
 
-	model.$("#myTab >.item").tab()
+	model.$("#myTab >.item").tab();
 	model.describe("collectList", {
 		provider: {
 			url: "/service/advertisement/my/collectList",

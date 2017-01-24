@@ -1,25 +1,33 @@
-cola(function (model, param) {
-	model.describe("advertisementVo", {
+cola(function (model,param) {
+	model.describe("titbitVo", {
 		provider: {
-			url: App.prop("service.baseUrl") + "/advertisement/get/" + param.id,
+			url: App.prop("service.baseUrl") + "/titbit/get/" + param.id,
 			success: function (self, arg) {
 				var vo = arg.result;
-				var videoDom = $.xCreate({
-					content: {
-						class: "video-js vjs-default-skin",
-						controls: true,
-						tagName: "video",
-						preload: "none",
-						height: "240", "data-setup": "{}",
-						poster: model.action("getAppImageUrl")(vo.advertisement.pictureId),
-						content: [
-							{
-								tagName: "source", src: vo.advertisement.videoUrl, type: "video/mp4"
-							}
-						]
-					}
-				});
-				model.$("#video").append(videoDom);
+				var mediaDom;
+				if (vo.titbit.videoUrl) {
+					mediaDom = $.xCreate({
+						content: {
+							class: "video-js vjs-default-skin",
+							controls: true,
+							tagName: "video",
+							preload: "none",
+							height: "240", "data-setup": "{}",
+							poster: model.action("getAppImageUrl")(vo.titbit.videoPictureId),
+							content: [
+								{
+									tagName: "source", src: vo.titbit.videoUrl, type: "video/mp4"
+								}
+							]
+						}
+					});
+				}else{
+					mediaDom=$.xCreate({
+						tagName:"img",
+						src: model.action("getAppImageUrl")(vo.titbit.videoPictureId)
+					})
+				}
+				model.$("#media").append(mediaDom);
 			}
 		}
 	});
@@ -33,9 +41,9 @@ cola(function (model, param) {
 		}
 
 
-		var item = model.get("advertisementVo");
-		var targetId = item.get("advertisement.id");
-		var data = {targetId: targetId, type: "advertisement", operationType: type};
+		var item = model.get("titbitVo");
+		var targetId = item.get("titbit.id");
+		var data = {targetId: targetId, type: "titbit", operationType: type};
 		var thumbs = item.get(type);
 
 		$.ajax(thumbs ? "/service/rating/delete" : "/service/rating/save", {
@@ -71,15 +79,12 @@ cola(function (model, param) {
 	}
 
 	model.action({
-		openExtendList: function () {
-			localStorage.setItem("_currentAdvertisement", JSON.stringify(model.get("advertisementVo").toJSON()));
-			App.open("/extend-list")
-		},
+
 		showBuy: function () {
-			cola.widget("buyLayer").show();
+			cola.widget("titbitBuyLayer").show();
 		},
 		hideBuy: function () {
-			cola.widget("buyLayer").hide();
+			cola.widget("titbitBuyLayer").hide();
 		},
 		goBuy: function (url) {
 			if (window.plus) {
@@ -99,6 +104,5 @@ cola(function (model, param) {
 			toggleRating("thumbsDown")
 		}
 	})
-
 
 });

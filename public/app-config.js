@@ -73,3 +73,16 @@ App.router({
 	title: "内容"
 });
 
+App.router({
+	path: "/extend-list",
+	class: "browser",
+	htmlUrl: "/card/extend-list",
+	title: "延伸内容"
+})
+
+App.router({
+	path: "/titbit/:id",
+	class: "free",
+	htmlUrl: "/card/titbit",
+	title: "延伸内容详情"
+});
