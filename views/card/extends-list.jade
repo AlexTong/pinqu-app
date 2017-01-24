@@ -1,0 +1,10 @@
+#extend-list
+	ul
+		li(c-repeat="item in list")
+			a.state(c-href="'/titbit/'+item.id")
+				img(c-src="getAppImageUrl(item.videoPictureId)")
+				.meta
+					div.title(c-bind="item.title")
+					div.content(c-bind="item.content")
+
+
