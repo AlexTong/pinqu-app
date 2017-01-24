@@ -20,6 +20,8 @@
 						span(c-bind="getUserName(advertisementVo.user)")
 					.item.date
 						span(c-bind="formatDate(advertisementVo.advertisement.updateDate,'MM-dd')")
+				.meta.extend(c-display="!isEmpty(advertisementVo.extendList)" c-onclick="openExtendList()")
+					div 延伸内容
 				.meta.title
 					.item
 						div(c-bind="advertisementVo.advertisement.title")

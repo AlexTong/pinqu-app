@@ -4,9 +4,9 @@ form#containerSignIn(c-widget="segment; class:basic" c-onsubmit="signIn()")
 			h2.ui.header 品趣
 			.ui.message.error
 		.field
-			div(c-widget="input; bind:account; placeholder:{{=resource('account')}}; postOnInput:true")
+			div(c-widget="input; bind:account; placeholder:登录名; postOnInput:true")
 		.field
-			div(c-widget="input; bind:password; placeholder:{{=resource('password')}}; inputType:password; postOnInput:true")
+			div(c-widget="input; bind:password; placeholder:密码; inputType:password; postOnInput:true")
 		//.field(style="text-align:right")
 		//	a.state(c-bind="=resource('signIn.forgot')" href="forgot-password1")
 		.field
