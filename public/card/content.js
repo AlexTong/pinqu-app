@@ -73,7 +73,7 @@ cola(function (model, param) {
 	model.action({
 		openExtendList: function () {
 			localStorage.setItem("_currentAdvertisement", JSON.stringify(model.get("advertisementVo").toJSON()));
-			App.open("/extend-list")
+			App.open("/extends-list")
 		},
 		showBuy: function () {
 			cola.widget("buyLayer").show();
