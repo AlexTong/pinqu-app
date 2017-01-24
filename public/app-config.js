@@ -74,9 +74,9 @@ App.router({
 });
 
 App.router({
-	path: "/extend-list",
+	path: "/extends-list",
 	class: "browser",
-	htmlUrl: "/card/extend-list",
+	htmlUrl: "/card/extends-list",
 	title: "延伸内容"
 })
 

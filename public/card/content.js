@@ -26,7 +26,6 @@ cola(function (model, param) {
 
 
 	function toggleRating(type) {
-
 		if (!App.prop("authenticated")) {
 			App.goLogin()
 			return;

@@ -12,6 +12,16 @@
 	.flex-box(style="overflow:auto")
 		div
 			#video
+			.extend(c-display="!isEmpty(advertisementVo.extendList)" c-onclick="openExtendList()")
+				ul
+					li(c-repeat="ext in advertisementVo.extendList")
+						img(c-src="getAppImageUrl(ext.videoPictureId)")
+				div.dimmer 延伸内容更精彩
+				div.open-btn
+					i.icon.ellipsis.vertical
+
+
+
 			.content
 				.meta.create
 					.item.user-avatar
@@ -20,8 +30,7 @@
 						span(c-bind="getUserName(advertisementVo.user)")
 					.item.date
 						span(c-bind="formatDate(advertisementVo.advertisement.updateDate,'MM-dd')")
-				.meta.extend(c-display="!isEmpty(advertisementVo.extendList)" c-onclick="openExtendList()")
-					div 延伸内容
+
 				.meta.title
 					.item
 						div(c-bind="advertisementVo.advertisement.title")
