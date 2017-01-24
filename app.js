@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static("/Users/alex/Temp/paotixia/upload"));
-app.use(express.static("/home/pinqu/upload"));
+app.use(express.static("/Users/alex/Temp/paotixia/upload"));
+//app.use(express.static("/home/pinqu/upload"));
 
 app.use('/', routes);
 app.use('/card', card);
