@@ -19,6 +19,28 @@ cola(function (model, param) {
 						]
 					}
 				});
+
+				if (window.App.getPlus()) {
+					videoDom = cola.xRender({
+						tagName: "div",
+						class: "native-play-container",
+						content: [
+							{
+								tagName: "img",
+								src: model.action("getAppImageUrl")(vo.advertisement.pictureId)
+							},
+							{
+								tagName: "div",
+								class: "play-dimmer",
+								"c-onclick": "playVideo()",
+								content: {
+									tagName: "i",
+									class: "icon video play outline"
+								}
+							}
+						]
+					}, model);
+				}
 				model.$("#video").append(videoDom);
 			}
 		}
@@ -73,6 +95,16 @@ cola(function (model, param) {
 		openExtendList: function () {
 			localStorage.setItem("_currentAdvertisement", JSON.stringify(model.get("advertisementVo").toJSON()));
 			App.open("/extends-list")
+		},
+		playVideo: function () {
+			var Intent = plus.android.importClass("android.content.Intent");
+			var Uri = plus.android.importClass("android.net.Uri");
+			var main = plus.android.runtimeMainActivity();
+			var intent = new Intent(Intent.ACTION_VIEW);
+			var videoUrl = model.get("advertisementVo.advertisement.videoUrl");
+			var uri = Uri.parse(videoUrl);
+			intent.setDataAndType(uri, "video/*");
+			main.startActivity(intent);
 		},
 		showBuy: function () {
 			cola.widget("buyLayer").show();

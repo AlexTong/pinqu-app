@@ -21,6 +21,27 @@ cola(function (model,param) {
 							]
 						}
 					});
+					if (window.App.getPlus()) {
+						mediaDom = cola.xRender({
+							tagName: "div",
+							class: "native-play-container",
+							content: [
+								{
+									tagName: "img",
+									src: model.action("getAppImageUrl")(vo.titbit.videoPictureId)
+								},
+								{
+									tagName: "div",
+									class: "play-dimmer",
+									"c-onclick": "playVideo()",
+									content: {
+										tagName: "i",
+										class: "icon video play outline"
+									}
+								}
+							]
+						}, model);
+					}
 				}else{
 					mediaDom=$.xCreate({
 						tagName:"img",
@@ -79,7 +100,16 @@ cola(function (model,param) {
 	}
 
 	model.action({
-
+		playVideo: function () {
+			var Intent = plus.android.importClass("android.content.Intent");
+			var Uri = plus.android.importClass("android.net.Uri");
+			var main = plus.android.runtimeMainActivity();
+			var intent = new Intent(Intent.ACTION_VIEW);
+			var videoUrl = model.get("titbitVo.titbit.videoUrl");
+			var uri = Uri.parse(videoUrl);
+			intent.setDataAndType(uri, "video/*");
+			main.startActivity(intent);
+		},
 		showBuy: function () {
 			cola.widget("titbitBuyLayer").show();
 		},

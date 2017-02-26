@@ -20,6 +20,36 @@
 	}
 }
 
+.native-play-container {
+	> img {
+		max-height: 100%;
+		margin: 0 auto;
+	}
+	overflow: hidden;
+	> .play-dimmer {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background-color: rgba(0, 0, 0, 0.53);
+		> i {
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -40px;
+			margin-left: -40px;
+			color: #fff;
+			font-size: 80px;
+			line-height: 80px
+		}
+	}
+	position: relative;
+
+	height: 180px;
+}
+
 #contentBody {
 	//background: #ececec;
 	> .box > .bottom-bar {
