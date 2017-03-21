@@ -34,12 +34,12 @@
 			.item.icon(c-class="highlight:titbitVo.collect" c-onclick="toggleCollect()")
 				i.icon.heart(c-class="empty:!titbitVo.collect")
 				div(c-bind="titbitVo.collectCount" )
-			.item.icon(c-class="highlight:titbitVo.thumbsUp" c-onclick="toggleThumbsUp()")
-				i.icon.thumbs.outline.up
-				div(c-bind="titbitVo.thumbsUpCount" )
-			.item.icon(c-class="highlight:titbitVo.thumbsDown" c-onclick="toggleThumbsDown()")
-				i.icon.thumbs.outline.down
-				div(c-bind="titbitVo.thumbsDownCount" )
+			//.item.icon(c-class="highlight:titbitVo.thumbsUp" c-onclick="toggleThumbsUp()")
+			//	i.icon.thumbs.outline.up
+			//	div(c-bind="titbitVo.thumbsUpCount" )
+			//.item.icon(c-class="highlight:titbitVo.thumbsDown" c-onclick="toggleThumbsDown()")
+			//	i.icon.thumbs.outline.down
+			//	div(c-bind="titbitVo.thumbsDownCount" )
 			.item.right
 				.ui.basic.button.blue(c-onclick="showBuy()" c-class="disabled:!titbitVo.advertisement.buyUrl") 购买引导
 c-layer#titbitBuyLayer
@@ -49,7 +49,7 @@ c-layer#titbitBuyLayer
 				.item.icon.back-button(c-onclick="hideBuy()")
 					i.icon.chevron.left
 				.item
-					span 品趣-购买引导
+					span 品兹-购买引导
 		.flex-box
 			div
 				.ui.segment.basic

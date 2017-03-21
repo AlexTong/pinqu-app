@@ -47,12 +47,12 @@
 			.item.icon(c-class="highlight:advertisementVo.collect" c-onclick="toggleCollect()")
 				i.icon.heart(c-class="empty:!advertisementVo.collect")
 				div(c-bind="advertisementVo.collectCount" )
-			.item.icon(c-class="highlight:advertisementVo.thumbsUp" c-onclick="toggleThumbsUp()")
-				i.icon.thumbs.outline.up
-				div(c-bind="advertisementVo.thumbsUpCount" )
-			.item.icon(c-class="highlight:advertisementVo.thumbsDown" c-onclick="toggleThumbsDown()")
-				i.icon.thumbs.outline.down
-				div(c-bind="advertisementVo.thumbsDownCount" )
+			//.item.icon(c-class="highlight:advertisementVo.thumbsUp" c-onclick="toggleThumbsUp()")
+			//	i.icon.thumbs.outline.up
+			//	div(c-bind="advertisementVo.thumbsUpCount" )
+			//.item.icon(c-class="highlight:advertisementVo.thumbsDown" c-onclick="toggleThumbsDown()")
+			//	i.icon.thumbs.outline.down
+			//	div(c-bind="advertisementVo.thumbsDownCount" )
 			.item.right
 				.ui.basic.button.blue(c-onclick="showBuy()" c-class="disabled:!advertisementVo.advertisement.buyUrl") 购买引导
 c-layer#buyLayer
@@ -62,7 +62,7 @@ c-layer#buyLayer
 				.item.icon.back-button(c-onclick="hideBuy()")
 					i.icon.chevron.left
 				.item
-					span 品趣-购买引导
+					span 品兹-购买引导
 		.flex-box
 			div
 				.ui.segment.basic
