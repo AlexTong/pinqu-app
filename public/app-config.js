@@ -7,17 +7,17 @@ App.channel({
 	title: "首页"
 });
 /* 频道 */
-App.channel({
-	path: "/hot",
-	icon: "lightning",
-	title: "热门"
-});
-/* 频道 */
-App.channel({
-	path: "/original",
-	icon: "diamond",
-	title: "原创"
-});
+// App.channel({
+// 	path: "/hot",
+// 	icon: "lightning",
+// 	title: "热门"
+// });
+// /* 频道 */
+// App.channel({
+// 	path: "/original",
+// 	icon: "diamond",
+// 	title: "原创"
+// });
 /* 频道 */
 App.channel({
 	path: "/user",

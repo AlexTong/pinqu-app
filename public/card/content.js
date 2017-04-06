@@ -19,8 +19,8 @@ cola(function (model, param) {
 						]
 					}
 				});
-
-				if (window.App.getPlus()) {
+				var hPlus=window.App.getPlus();
+				if (hPlus && hPlus.os.name !== "iOS") {
 					videoDom = cola.xRender({
 						tagName: "div",
 						class: "native-play-container",
